@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Masonry Layout -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.min.js"></script>
+
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <title>Mehta Vrushal - Portfolio</title>
+
+    <link rel="shortcut icon" href="/Behance - Project/Personal-Web/assets/Favicon.png" type="image/x-icon">
+
+    <style>
+        /* ::selection {
+            background-color: #2E6BFA;
+            color: white;
+        } */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100vh; /* Make the body taller to enable scrolling */
+            width: 100%;
+            font-family: "Montserrat", sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        #hover_bg {
+            transition: .4s ease-out;
+        }
+
+        #btn_bg {
+            transition: .2s ease-in-out;
+        }
+
+        #btn_text {
+            transition: .3s ease-in-out;
+        }
+
+        #Page1 {
+            position: fixed; /* Fix Page1 in place */
+            z-index: 1;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #page2 {
+            position: absolute;
+            top: 100vh;
+            left: 0;
+            width: calc(100vw - 12px);
+            height: 150vh;
+            z-index: 2;
+            background: #F6F6F6;
+        }
+
+        #arr_icn{
+            transition: .1s ease-in;
+        }
+
+        #btn{
+            transition: .2s ease-in-out;
+        }
+
+        #cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: .085s ease;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            opacity: 1; /* Ensure it's visible by default */
+            margin: -9px;
+        }
+
+        .button-hover:hover #cursor {
+            background-color: black;
+        }
+
+    </style>
+
+    <style>
+        /* Add this to your existing <style> block */
+
+        .image-container {
+            perspective: 1500px; /* Increase perspective for a more pronounced effect */
+            position: relative;
+            overflow: visible; /* Ensure overflow is visible to see shadow effect */
+        }
+
+        .image-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0); /* Transparent background */
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0); /* No shadow by default */
+            z-index: -1; /* Make sure the shadow is behind the image */
+            transition: box-shadow 0.3s ease;
+            transform: translateZ(-1px); /* Push the shadow back to avoid overlap */
+        }
+
+        .image-container:hover::after {
+            box-shadow: none; /* Remove shadow effect on hover */
+        }
+
+        .image-container img {
+            transition: transform 0.2s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .image-container:hover img {
+            transform: rotateX(10deg) rotateY(-10deg); /* Adjusted rotation on hover */
+        }
+
+        /* General loading screen styles */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.815); /* Semi-transparent background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(1px);
+            z-index: 9999;
+        }
+
+        /* Loading bar container */
+        .loading-bar {
+            width: 80%;
+            max-width: 600px;
+            height: 10px;
+            background-color: #1E40AF; /* Darker blue */
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        /* Progress bar */
+        .loading-bar .progress {
+            width: 0;
+            height: 100%;
+            background-color: #FFFFFF; /* White */
+            transition: width 3s linear; /* Smooth transition */
+        }
+
+        /* Optional: Hover effect for loading bar */
+        .loading-bar:hover {
+            background-color: #153E75; /* Slightly darker shade of blue for hover */
+        }
+
+        /* Optional: Progress bar color for a lighter shade */
+        .loading-bar .progress {
+            background-color: #E0E7FF; /* Lighter blue for progress */
+        }
+
+
+    </style>
+
+    <style>
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed;
+            z-index: 9999; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px; /* Responsive width */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            max-height: 80%; /* Ensures the modal does not overflow vertically */
+            overflow-y: auto; /* Adds a scrollbar if the content is too tall */
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        #tm {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        #poli {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        #stroke{
+            text-shadow: 0px 0px 25px black;
+        }
+
+        /* #hover-effect{
+            transition: .3s ease-in;
+            border-radius: 5px;
+        }
+
+        #hover-effect:hover{
+            border-radius: 15px;
+        } */
+
+    </style>
+
+</head>
+
+<body>
+
+    <div id="loading-screen" class="loading-screen">
+        <div id="loading-bar" class="loading-bar">
+            <div class="progress"></div>
+        </div>
+    </div>
+    
+    <div id="cursor"></div>
+
+    <div id="nav" class="h-[8vh] w-[100vw] bg-white flex justify-between items-center fixed z-[5]">
+
+        <div id="logo" class="w-[33.33%]">
+            <img src="/Behance - Project/Personal-Web/assets/Logo.png" class="h-[20px] w-fit pl-[25px]" alt="">
+            
+        </div>
+
+        <div id="pages" class="flex gap-[25px] w-[33.33%] justify-center font-[500]">
+            <a id="Home" href="#herosec"><p>Home</p></a>
+            <a href="#About"><p>About</p></a>
+            <a href="#footer"><p>Contact</p></a>
+        </div>
+
+        <div id="Socials" class="w-[33.33%] flex justify-end pr-[25px] gap-[10px] text-[22px]">
+            <a target="_blank" href="https://www.instagram.com/mehta_vrushal_09/"><i class="ri-instagram-fill"></i></a>
+            <a target="_blank" href="https://www.behance.net/nexusgfx"><i class="ri-behance-fill"></i></a>
+            <a target="_blank" href="https://www.naukri.com/mnjuser/profile?id=&altresid"><i class="ri-linkedin-box-fill"></i></a>
+        </div>
+
+    </div>
+
+    <div id="Page1" class="h-[100vh] w-[100vw] relative overflow-hidden bg-black">
+
+        <!-- <img id="Bg image" class="BG absolute z-[-2]" src="/Behance - Project/Personal-Web/assets/Background.png" class="h-[100%] w-[100%] object-cover object-center" alt=""> -->
+        <video type="video/mov" muted autoplay loop src="/Behance - Project/Personal-Web/assets/Works/Dots-5.mp4" class="h-[100%] w-[100%] object-cover object-center BG absolute z-[-2] opacity-[80%]"></video>
+
+        <div id="herosec" class="h-[100vh] w-[100vw] flex flex-col text-white justify-center px-[55px] gap-[30px] pt-[30px]">
+            <p id="stroke" class="text-[130px] font-[500] leading-[145px] tracking-[-2px]">I'm Mehta Vrushal, a Software-Developer.</p>
+            <p id="stroke-2" class="text-[18px] w-[80%] bg-black">I am Mehta Vrushal, a BSc IT student specializing in Data Science. I am proficient in HTML, CSS, JavaScript, Tailwind CSS, Java, Python, SQL, PHP, C++, DSA, Blender, Photoshop, After Effects, Premiere Pro, Figma, and Adobe XD.</p>
+            <div id="start_btn" class="button-hover bg-[#ffffff36] w-[25%] px-[12px] py-[10px] rounded-full border-[2px] border-[#ffffff66] backdrop-blur-[3px] flex justify-between items-center relative overflow-hidden cursor-pointer">
+                <p id="btn_text" class="text-[30px] pl-[15px]">Download CV</p>
+                <span id="btn_bg" class="bg-[#2E6BFA] text-[45px] text-black rounded-full py-[5px] px-[16px]"><i class="ri-corner-up-right-line"></i></span>
+                <div id="hover_bg" class="bg-[#2E6BFA] fixed h-[5px] w-[5px] right-[12px] z-[-1] rounded-full"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="page2" class="rounded-t-[25px] flex overflow-hidden flex-col">
+
+        <div id="About" class="h-[100vh] w-[100vw] flex">
+            <div id="left" class="h-[100%] w-[40%] pt-[105px] p-[45px] flex flex-col justify-center">
+                <div id="top" class="flex flex-col gap-[15px] h-[100%] w-[100%] gap-[25px] justify-center">
+                    <p class="font-[500] text-[32px]">Hello, I'm <span class="font-[700]">Mehta Vrushal</span>,</p>
+                    <p class="font-[500] text-[15px] leading-[35px]">I am Mehta Vrushal, a BSc IT student specializing in Data Science. I am proficient in <span class="bg-black text-white">HTML, CSS, JavaScript, Tailwind CSS, Java, Python, SQL, PHP C++ and DSA</span>. I also have skills in <span class="bg-black text-white">Blender for 3D animation, Photoshop for graphic design, After Effects for motion graphics and VFX, Premiere Pro for video editing, and Figma and Adobe XD for UI/UX design</span>. My diverse expertise allows me to deliver comprehensive and visually appealing digital solutions.</p>
+                    <div id="btn" class="button-hover flex bg-black w-fit px-[15px] py-[10px] rounded-full gap-[10px] mt-[25px] cursor-pointer">
+                        <a href="#footer"> <p class="text-[18px] font-[500] text-white ">Contact me</p></a>
+                        <i id="arr_icn" class="ri-corner-up-right-line text-white text-[18px] opacity-0 hidden"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="right" class="h-full w-[60%] border-b flex text-white p-8 flex-col justify-center items-center mt-6">
+                <P class="text-black pb-[15px]">Some of my Projects. Hope you like it. 😊</P>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-masonry='{"percentPosition": true }'>
+                    <div class="image-container cursor-pointer overflow-hidden">
+                        <img id="hover-effect" src="/Behance - Project/Personal-Web/assets/Works/Img 1.png" alt="Project 1">
+                    </div>
+                    <div class="image-container cursor-pointer overflow-hidden">
+                        <img id="hover-effect" src="/Behance - Project/Personal-Web/assets/Works/Img 9.gif" alt="Project 2">
+                    </div>
+                    <div class="image-container cursor-pointer overflow-hidden">
+                        <img id="hover-effect" src="/Behance - Project/Personal-Web/assets/Works/Img 12.png" alt="Project 3">
+                    </div>
+                    <div class="image-container cursor-pointer overflow-hidden">
+                        <img id="hover-effect" src="/Behance - Project/Personal-Web/assets/Works/Img 11.gif" alt="Project 4">
+                    </div>
+                    <div class="image-container cursor-pointer overflow-hidden">
+                        <img id="hover-effect" src="/Behance - Project/Personal-Web/assets/Works/Img 6.png" alt="Project 5">
+                    </div>
+                    <div class="image-container cursor-pointer overflow-hidden">
+                        <img id="hover-effect" src="/Behance - Project/Personal-Web/assets/Works/Img 10.gif" alt="Project 6">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer" class="h-[50vh] w-full bg-black">
+            <div id="top" class="h-[80%] w-full flex">
+                <div id="left" class="h-full w-1/2 flex flex-col p-8 text-white gap-6 justify-center border-b border-gray-500">
+                    <img src="/Behance - Project/Personal-Web/assets/Logo(2).png" class="h-6 w-fit" alt="">
+                    <p class="text-sm w-3/4">I am Mehta Vrushal, a BSc IT student specializing in Data Science. I am proficient in HTML, CSS, JavaScript, Tailwind CSS, Java, Python, SQL, PHP, Blender, Photoshop, After Effects, Premiere Pro, Figma, and Adobe XD.</p>
+                    <div id="icons" class="flex gap-2.5 text-xl">
+                        <a target="_blank" href="https://www.instagram.com/mehta_vrushal_09/"><i class="ri-instagram-fill"></i></a>
+                        <a target="_blank" href="https://www.behance.net/nexusgfx"><i class="ri-behance-fill"></i></a>
+                        <a target="_blank" href="https://www.naukri.com/mnjuser/profile?id=&altresid"><i class="ri-linkedin-box-fill"></i></a>
+                    </div>
+                </div>
+                <div id="right" class="h-full w-1/2 border-b border-gray-500 flex text-white p-8 flex-col justify-center items-center"> 
+                    <div id="contact" class="h-full w-full max-w-md bg-white rounded-lg bg-cover bg-center p-6 flex flex-col justify-center items-center gap-4 shadow-lg" style="background-image: url('https://i.pinimg.com/736x/76/88/8b/76888b659329767949f039bf86857dba.jpg');">
+                        <p class="text-center text-black font-semibold text-2xl text-shadow-md">Reach out to me.</p>
+                        <form action="https://api.web3forms.com/submit" method="POST" class="w-full flex flex-col items-center gap-4">
+                            <input type="hidden" name="access_key" value="2547aff0-adf9-4156-9e47-7ff91da5964a">
+                            <input id="Inp" class="w-4/5 h-[50px] px-4 text-center rounded-full text-black border-2 border-black font-[500] resize-none focus:outline-none focus:ring-2 focus:ring-[#2E6BFA]" placeholder="Your Name, Your Message Here" name="message" required></input>
+                            <button id="Sub" type="submit" class="bg-black text-white py-2 px-6 rounded-full font-medium hover:bg-[#2E6BFA] hover:text-white hover:font-[600] transition duration-300">Submit Form</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div id="bottom" class="h-[20%] w-full flex justify-between text-white px-8 items-center">
+                <p class="cursor-pointer" id="terms-link">Terms & Condition</p>
+                <p class="cursor-pointer" id="privacy-link">Privacy Policy</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        let progress = document.querySelector("#loading-bar .progress");
+        let loadingScreen = document.getElementById("loading-screen");
+
+        // Ensure the progress bar completes within 3 seconds
+        setTimeout(() => {
+            progress.style.width = '100%';
+        }, 10); // Start animation almost immediately
+
+        // Hide the loading screen after 3 seconds
+        setTimeout(() => {
+            loadingScreen.style.opacity = 0; // Start fade out
+        }, 3010); // Slightly more than 3 seconds to ensure smooth transition
+
+        // Remove the loading screen from DOM after fade out
+        setTimeout(() => {
+            loadingScreen.style.display = "none";
+        }, 5010); // Slightly more than 4 seconds to ensure complete fade out
+    });                                                                                                                     
+    </script>
+
+    <script>
+        var btn = document.querySelector("#start_btn");
+        let bg_hover = document.querySelector("#hover_bg");
+        let btn_bg = document.querySelector("#btn_bg");
+        let btn_text = document.querySelector("#btn_text");
+        let contact_btn = document.querySelector("#btn");
+        let arr_icn = document.querySelector("#arr_icn");
+        var cursor = document.querySelector("#cursor");
+
+        // Update cursor position
+        document.addEventListener("mousemove", function(event) {
+            cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        });
+
+        // Hide cursor when entering #btn
+        btn.addEventListener("mouseenter", function() {
+            cursor.style.opacity = "0";
+        });
+
+        // Show cursor when leaving #btn
+        btn.addEventListener("mouseleave", function() {
+            cursor.style.opacity = "1";
+        });
+
+        btn.addEventListener("mouseover", function() {
+            bg_hover.style.backgroundColor = "#2E6BFA";
+            bg_hover.style.height = "500px";
+            bg_hover.style.width = "500px";
+            bg_hover.style.margin = "-25px";
+            btn_bg.style.backgroundColor = "#ffffff";
+            btn_text.style.color = "white";
+            btn_text.style.fontWeight = "500";
+        });
+
+        document.getElementById('start_btn').addEventListener('click', function() {
+            window.location.href = 'https://drive.google.com/file/d/1JN_PgaMRJUXWzi5NATPYlmUM5gcwwv1-/view?usp=sharinghttps://drive.google.com/file/d/1JN_PgaMRJUXWzi5NATPYlmUM5gcwwv1-/view?usp=sharing';
+        });
+
+        btn.addEventListener("mouseout", function() {
+            bg_hover.style.height = "0px";
+            bg_hover.style.width = "0px";
+            bg_hover.style.margin = "0px";
+            bg_hover.style.backgroundColor = "#2E6BFA";
+            btn_text.style.color = "white";
+            btn_bg.style.backgroundColor = "#2E6BFA";
+        });
+
+        contact_btn.addEventListener("mouseover", function(){
+            arr_icn.style.opacity = "1";
+            contact_btn.style.padding = "10px 25px";
+            arr_icn.style.display = "flex";
+        });
+
+        contact_btn.addEventListener("mouseout", function(){
+            arr_icn.style.opacity = "0";
+            contact_btn.style.padding = "10px 15px";
+            arr_icn.style.display = "none";
+        });
+
+        document.addEventListener("scroll", function() {
+            let scrollPosition = window.scrollY;
+            let pageHeight = window.innerHeight;
+            if (scrollPosition >= pageHeight) {
+                cursor.style.backgroundColor = "white";
+            } else {
+                cursor.style.backgroundColor = "white";
+            }
+        });
+
+        document.addEventListener("mousemove", function(event) {
+        let cursor = document.querySelector("#cursor");
+        let cursorSize = 20; // Adjust this value if you change the cursor size
+
+        let x = event.clientX;
+        let y = event.clientY;
+        cursor.style.transform = `translate(${x}px, ${y}px)`;
+
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+
+        let edgeBuffer = 10; // Distance from the edge where the cursor will disappear
+
+        if (x <= edgeBuffer || x >= windowWidth - edgeBuffer || y <= edgeBuffer || y >= windowHeight - edgeBuffer) {
+            cursor.style.opacity = "0";
+        } else {
+            cursor.style.opacity = "1";
+            cursor.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    });
+    document.addEventListener("scroll", function() {
+        let cursor = document.querySelector("#cursor");
+        let scrollPosition = window.scrollY;
+        let pageHeight = window.innerHeight;
+        if (scrollPosition >= pageHeight) {
+            cursor.style.backgroundColor = "white";
+        } else {
+            cursor.style.backgroundColor = "white";
+        }
+    });
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var elem = document.querySelector('.grid');
+        var msnry = new Masonry(elem, {
+            // options
+            itemSelector: '.grid-item',
+            percentPosition: true
+        });
+    });
+
+        document.addEventListener("mousemove", function(event) {
+        let cursor = document.querySelector("#cursor");
+        cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+    });
+
+    document.querySelectorAll('.button-hover').forEach(button => {
+        button.addEventListener("mouseover", function() {
+            let cursor = document.querySelector("#cursor");
+            cursor.style.width = "50px";
+            cursor.style.height = "50px";
+        });
+
+        button.addEventListener("mouseout", function() {
+            let cursor = document.querySelector("#cursor");
+            cursor.style.width = "20px";
+            cursor.style.height = "20px";
+        });
+    });
+
+    </script>
+
+    <script>
+        document.querySelectorAll('.image-container').forEach(container => {
+            const img = container.querySelector('img');
+            
+            container.addEventListener('mousemove', (event) => {
+                const rect = container.getBoundingClientRect();
+                const x = event.clientX - rect.left; // x position within the element
+                const y = event.clientY - rect.top;  // y position within the element
+    
+                const xCenter = rect.width / 2;
+                const yCenter = rect.height / 2;
+    
+                const xPercent = (x - xCenter) / xCenter;
+                const yPercent = (y - yCenter) / yCenter;
+    
+                img.style.transform = `rotateX(${yPercent * 20}deg) rotateY(${-xPercent * 20}deg)`; // Increased rotation
+            });
+    
+            container.addEventListener('mouseleave', () => {
+                img.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            });
+        });
+    </script>
+
+    <script>
+        let home = document.querySelector("#Home")
+        home.addEventListener("click",function(){
+            window.scrollBy(0, -1500);
+        })
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loading-screen').classList.add('fade-out');
+            }, 2000); // 3 seconds
+            setTimeout(() => {
+                document.getElementById('loading-screen').style.display = 'none';
+            }, 3000); // 4 seconds to ensure fade out
+        });
+    </script>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+        const cursor = document.getElementById('cursor');
+        const loadingScreen = document.getElementById('loading-screen');
+
+        document.addEventListener("mousemove", function(event) {
+            let cursor = document.querySelector("#cursor");
+            cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+        });
+
+
+        document.addEventListener('mouseover', (event) => {
+            if (event.target.closest('#start_btn')) {
+                cursor.style.backgroundColor = 'black';
+            } else {
+                cursor.style.backgroundColor = 'white';
+            }
+        });
+
+        document.addEventListener('mouseout', (event) => {
+            if (event.target.closest('#start_btn')) {
+                cursor.style.backgroundColor = 'white';
+            }
+        });
+
+        setTimeout(() => {
+            loadingScreen.classList.add('fade-out');
+        }, 3000);
+
+        loadingScreen.addEventListener('transitionend', () => {
+            loadingScreen.style.display = 'none';
+        });
+    });
+
+    </script>
+
+    <!-- Modal for Terms & Conditions -->
+    <div id="terms-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="close-terms">&times;</span>
+            <h2 class="font-[600] text-[18px]">Terms & Conditions</h2>
+            <p id="tm">Terms and Conditions
+                Introduction
+                Welcome to My Portfolio. By accessing and using our website, you agree to comply with and be bound by the following terms and conditions. If you do not agree to these terms, please do not use our website.
+                
+                Use of the Website
+                You agree to use the website only for lawful purposes and in a way that does not infringe the rights of, restrict, or inhibit anyone else's use and enjoyment of the website.
+                You are responsible for ensuring that all information you provide on the website is accurate and up-to-date.
+                Intellectual Property
+                All content on the website, including text, graphics, logos, images, and software, is the property of [Your Website Name] or its content suppliers and is protected by intellectual property laws.
+                You may not reproduce, distribute, or create derivative works from any content on the website without our prior written consent.
+                Limitation of Liability
+                We strive to ensure the accuracy of the information on our website, but we do not guarantee that all content is free from errors or omissions.
+                We are not liable for any direct, indirect, incidental, or consequential damages arising from your use of the website.
+                Changes to the Terms
+                We reserve the right to update or modify these terms and conditions at any time without prior notice. Your continued use of the website after any changes constitutes your acceptance of the new terms.
+                Contact Us
+                If you have any questions about these terms and conditions, please contact us at Socials provided in webiste, or directly contact me at email:- mehtavrushalvm@gmail.com.
+                </p>
+        </div>
+    </div>
+
+    <!-- Modal for Privacy Policy -->
+    <div id="privacy-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" id="close-privacy">&times;</span>
+            <h2 class="font-[600] text-[18px]">Privacy Policy</h2>
+            <p id="poli">Introduction
+                At Vrushal studios, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website.
+                
+                Information We Collect
+                We may collect personal information such as your name, email address, and any other information you provide to us voluntarily.
+                We may also collect non-personal information such as your IP address, browser type, and access times.
+                How We Use Your Information
+                We use your personal information to provide you with the services you request, communicate with you, and improve our website.
+                We may use non-personal information to analyze website usage and improve our services.
+                Sharing Your Information
+                We do not sell, trade, or otherwise transfer your personal information to outside parties without your consent, except as required by law.
+                We may share your information with trusted third parties who assist us in operating our website, conducting our business, or serving our users.
+                Cookies
+                We use cookies to enhance your experience on our website. Cookies are small files that a site or its service provider transfers to your computer's hard drive through your web browser that enables the site's systems to recognize your browser and capture certain information.
+                You can choose to disable cookies through your browser settings, but doing so may affect your ability to use certain features of our website.
+                Data Security
+                We implement appropriate security measures to protect your personal information from unauthorized access, alteration, disclosure, or destruction.
+                Changes to This Privacy Policy
+                We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on our website.
+                Contact Us
+                If you have any questions about this Privacy Policy, please contact us at Socials provided in webiste, or directly contact me at email:- mehtavrushalvm@gmail.com.</p>
+        </div>
+    </div>
+
+    <script>
+        // Get modal elements
+        var termsModal = document.getElementById("terms-modal");
+        var privacyModal = document.getElementById("privacy-modal");
+    
+        // Get open modal buttons
+        var termsBtn = document.getElementById("terms-link");
+        var privacyBtn = document.getElementById("privacy-link");
+    
+        // Get close buttons
+        var closeTerms = document.getElementById("close-terms");
+        var closePrivacy = document.getElementById("close-privacy");
+    
+        // Open modals
+        termsBtn.onclick = function(event) {
+            event.preventDefault();
+            termsModal.style.display = "block";
+        }
+        privacyBtn.onclick = function(event) {
+            event.preventDefault();
+            privacyModal.style.display = "block";
+        }
+    
+        // Close modals
+        closeTerms.onclick = function() {
+            termsModal.style.display = "none";
+        }
+        closePrivacy.onclick = function() {
+            privacyModal.style.display = "none";
+        }
+    
+        // Close modals when clicking outside of the modal
+        window.onclick = function(event) {
+            if (event.target == termsModal) {
+                termsModal.style.display = "none";
+            }
+            if (event.target == privacyModal) {
+                privacyModal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
