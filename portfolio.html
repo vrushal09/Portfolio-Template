@@ -95,6 +95,40 @@
             text-align: center;
             font-size: 0.95em;
         }
+        .project-card {
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin: 10px;
+        text-align: center;
+        }
+
+        .project-thumbnail-small {
+        width: 100px;
+        height: auto;
+        }
+
+        .project-details {
+        padding: 20px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        }
+
+        .project-details.hidden {
+        display: none;
+        }
+
+        .project-thumbnail {
+        width: 100px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        }
+
+        .project-image {
+        width: 100%;
+        margin: 10px 0;
+        }
 
     </style>
     
@@ -210,6 +244,65 @@
 
     </style>
 
+    <style>
+        /* Overlay for project details */
+        .project-details-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Black transparent background */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        transition: opacity 0.3s ease;
+        }
+
+        /* Hidden state for overlay */
+        .project-details-overlay.hidden {
+        display: none;
+        }
+
+        /* Styling for project details box */
+        .project-details {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 600px;
+        width: 90%;
+        max-height: 80%;
+        overflow-y: auto;
+        position: relative;
+        }
+
+        /* Close button style */
+        .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 4px;
+        }
+
+        .project-thumbnail {
+        width: 100px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        }
+
+        .project-image {
+        width: 100%;
+        margin: 10px 0;
+        }
+    </style>
+
 </head>
 <body>
     <div id="main" class="h-fit w-[100vw] bg-[#F6F6F6] flex flex-col items-center bg-[#F6F6F6]">
@@ -244,19 +337,33 @@
                 <p class="text-[22px] font-[600] px-[15px] sm:px-[0px]">My Projects <i class="ri-arrow-down-s-line"></i></p>
                <a href="index.html"> <i class="ri-arrow-left-s-line sm:hidden flex text-[22px] font-[600]"></i></a>
             </div>
-            <div id="portfolio" class="portfolio-container ">
-                <!-- Project items will be loaded here dynamically -->
+           
+            <div id="project-card-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 w-full">
+                <!-- Project cards will be dynamically added here -->
             </div>
+            
+              
+            <div id="project-details-overlay" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50">
+                <div id="project-details" class="bg-white p-6 rounded-lg shadow-lg max-w-lg w-full md:max-w-2xl h-auto max-h-[90vh] overflow-hidden relative">
+                    <button id="close-button" class="absolute top-4 right-4 bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                        Close
+                    </button>
+                    <div class="overflow-auto max-h-[calc(90vh-2.5rem)]">
+                        <img id="project-thumbnail" class="w-full h-auto rounded-lg mb-4" src="" alt="Project Thumbnail">
+                        <h2 id="project-name" class="text-2xl font-bold mb-2"></h2>
+                        <p id="project-description" class="text-gray-700 mb-4"></p>
+                        <div id="project-images" class="grid grid-cols-2 gap-2 mb-4"></div>
+                    </div>
+                </div>
+            </div>          
+                   
         </div>
 
-        <div id="image-modal" class="hidden fixed inset-0 bg-black bg-opacity-75 flex justify-center  items-center z-50">
-            <div class="relative">
-                <button id="close-btn" class="absolute top-2 right-2 text-white text-2xl">&times;</button>
-                <img id="fullscreen-image" src="" alt="Fullscreen Image" class="max-w-full max-h-full rounded-md">
-            </div>
+        
+              
         </div>
 
-        <div id="footer" class="sm:h-[50vh] h-[70vh] w-full bg-black">
+        <div id="footer" class="sm:h-[50vh] h-[100vh] w-full bg-black">
             <div id="top" class="h-[80%] w-full sm:flex-row flex-col flex">
                 <div id="left" class="sm:h-full sm:w-1/2 h-[30%] w-[100%]  flex flex-col p-8 text-white sm:gap-6 justify-center border-b border-gray-500">
                     <img src="assets/Logo(2).png" class="sm:h-6 h-7 w-fit" alt="">
@@ -280,10 +387,9 @@
             </div>
             <div id="bottom" class="h-[20%] w-full flex justify-between text-white px-8 items-center">
                 <p class="cursor-pointer" id="terms-link">Terms & Condition</p>
-                <p class="cursor-pointer" id="privacy-link">Privacy Policy</p>
+                <p class="cursor-pointer" id="privacy-link">Privacy Policy</p>  
             </div>
         </div>
-
     </div>
 
     <script>
@@ -307,26 +413,89 @@
                 portfolioContainer.appendChild(projectCard);
             });
         }
+    </script>
 
-        // Function to open the image modal
-        function openImageModal(imageSrc) {
-            const modal = document.getElementById('image-modal');
-            const fullscreenImage = document.getElementById('fullscreen-image');
-            fullscreenImage.src = imageSrc;
-            modal.classList.remove('hidden');
+    <script>
+        // Function to display project details in the overlay
+        function displayProjectDetails(project) {
+        // Select elements
+        const projectName = document.getElementById('project-name');
+        const projectDescription = document.getElementById('project-description');
+        const projectImagesContainer = document.getElementById('project-images');
+        const projectThumbnail = document.getElementById('project-thumbnail');
+        const overlay = document.getElementById('project-details-overlay');
+
+        // Populate project details
+        projectName.textContent = project.name;
+        projectDescription.textContent = project.description;
+        projectThumbnail.src = project.thumbnail;
+
+        // Clear previous images
+        projectImagesContainer.innerHTML = '';
+
+        // Populate images from URLs
+        project.images.forEach(url => {
+            const img = document.createElement('img');
+            img.src = url;
+            img.className = 'project-image';
+            projectImagesContainer.appendChild(img);
+        });
+
+        // Show the overlay
+        overlay.classList.remove('hidden');
         }
 
-        // Event listener for closing the image modal when the close button is clicked
-        document.getElementById('close-btn').addEventListener('click', () => {
-            document.getElementById('image-modal').classList.add('hidden');
-        });
-
-        // Event listener for closing the image modal when clicking outside the image
-        document.getElementById('image-modal').addEventListener('click', (event) => {
-            if (event.target.id === 'image-modal') {
-                document.getElementById('image-modal').classList.add('hidden');
+        // Function to handle card clicks
+        function onCardClick(projectId) {
+        fetch('projects.json')
+            .then(response => response.json())
+            .then(projects => {
+            const project = projects.find(p => p.id === projectId);
+            if (project) {
+                displayProjectDetails(project);
             }
-        });
+            })
+            .catch(error => console.error('Error fetching project data:', error));
+        }
+
+        // Function to hide the overlay
+        function closeOverlay() {
+        const overlay = document.getElementById('project-details-overlay');
+        overlay.classList.add('hidden');
+        }
+
+        // Event listener for the close button
+        document.getElementById('close-button').addEventListener('click', closeOverlay);
+
+        // Example function to dynamically create project cards
+        function loadProjectCards() {
+        fetch('projects.json')
+            .then(response => response.json())
+            .then(projects => {
+            const container = document.getElementById('project-card-container');
+            projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.onclick = () => onCardClick(project.id);
+
+                const thumbnail = document.createElement('img');
+                thumbnail.src = project.thumbnail;
+                thumbnail.className = 'project-thumbnail-small';
+
+                const name = document.createElement('h3');
+                name.textContent = project.name;
+
+                card.appendChild(thumbnail);
+                card.appendChild(name);
+                container.appendChild(card);
+            });
+            })
+            .catch(error => console.error('Error loading project cards:', error));
+        }
+
+        // Load project cards when the page loads
+        window.onload = loadProjectCards;
+
     </script>
 
     <div id="terms-modal" class="modal hidden">
