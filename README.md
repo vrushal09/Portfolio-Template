@@ -1,4 +1,4 @@
-# Vrushal.com
+# Vrushal.com V_0.2
 
 Welcome to the Vrushal.com repository! This project is a personal website for showcasing my work and projects. It includes various features and is built using modern web technologies.
 
