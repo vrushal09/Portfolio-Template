@@ -1,10 +1,10 @@
-# Vrushal.com V_0.2
+# Vrushal.com
 
 Welcome to the Vrushal.com repository! This project is a personal website for showcasing my work and projects. It includes various features and is built using modern web technologies.
 
 ## Description
 
-Vrushal.com is a portfolio website that displays information about my projects, skills, and experiences. The site includes interactive elements, smooth transitions, and is designed with a modern aesthetic.
+Vrushal.com is a portfolio website that displays information about my projects, skills, and experiences. The site includes interactive elements, smooth transitions, and is designed with a modern aesthetic. Current version - V_0.2
 
 ## Features
 
