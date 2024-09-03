@@ -53,5 +53,17 @@
     "images": [
      
     ]
+  },
+  {
+    "id": 6,
+    "name": "Lemon Dynamics: A 3D Rigid Body Simulation",
+    "description": "Explore the fascinating physics of everyday objects with 'Lemon Dynamics,' a 3D simulation that brings a simple lemon to life. Watch as the lemon, modeled with precision and realism, responds to various forces, collisions, and environmental changes in a virtual space. This simulation showcases rigid body dynamics, including gravity, friction, and elasticity, offering a playful yet educational insight into how real-world physics can be applied to digital objects. Perfect for demonstrating the principles of physics or simply enjoying the unpredictable movement of a lemon in a simulated environment.",
+    "thumbnail": "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Thumbnails/Prjct%20-%206.png?raw=true",
+    "images": [
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/5-1.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/5-2.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/5-3.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/5-4.png?raw=true"
+    ]
   }
 ]
