@@ -4,11 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Masonry Layout -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.min.css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.min.js"></script>
-
+    
     <!-- font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +27,7 @@
         html, body {
             height: 100%;
             width: 100%;
+            font-family: "Montserrat", sans-serif;
         }
         #cursor {
             position: fixed;
@@ -320,7 +317,7 @@
             <div id="pages" class="hidden gap-[25px] w-[33.33%] justify-center font-[500] sm:flex">
                 <a id="Home" href="index.html"><p>Home</p></a>
                 <a href="index.html#About"><p>About</p></a>
-                <a href="index.html#footer"><p>Contact</p></a>
+                <a href="contact.html"><p>Contact</p></a>
                 <a href="portfolio.html"><p>Portfolio</p></a>
             </div>
 
@@ -361,14 +358,14 @@
                    
         </div>
 
-        
-              
         </div>
 
-        <div id="footer" class="sm:h-[50vh] h-[100vh] w-full bg-black">
+        <div id="footer" class="sm:h-[50vh] h-[70vh] w-full bg-black">
             <div id="top" class="h-[80%] w-full sm:flex-row flex-col flex">
-                <div id="left" class="sm:h-full sm:w-1/2 h-[30%] w-[100%]  flex flex-col p-8 text-white sm:gap-6 justify-center border-b border-gray-500">
-                    <img src="assets/Logo(2).png" class="sm:h-6 h-7 w-fit" alt="">
+                <div id="left top" class="sm:h-full sm:w-1/2 h-[30%] w-[100%]  flex flex-col p-8 text-white sm:gap-6 justify-center border-b border-gray-500">
+                    <div id="logo" class="h-25px w-fit flex gap-[8px] items-center">
+                        <img src="/Behance - Project/Personal-Web/assets/Logo(2).png" class="sm:h-6 h-7 w-fit" alt=""> <p class="text-[12px] text-gray-500 font-[500] mt-[10px]">V_0.2</p>
+                    </div>
                     <p class="text-sm w-3/4 sm:flex hidden">I am Mehta Vrushal, a BSc IT student specializing in Data Science. I am proficient in HTML, CSS, JavaScript, Tailwind CSS, Java, Python, SQL, PHP, Blender, Photoshop, After Effects, Premiere Pro, Figma, and Adobe XD.</p>
                     <div id="icons" class="flex gap-2.5 text-xl">
                         <a target="_blank" href="https://www.instagram.com/mehta_vrushal_09/"><i class="ri-instagram-fill"></i></a>
@@ -376,20 +373,17 @@
                         <a target="_blank" href="https://www.naukri.com/mnjuser/profile?id=&altresid"><i class="ri-linkedin-box-fill"></i></a>
                     </div>
                 </div>
-                <div id="right" class="sm:h-full sm:w-1/2 h-[70%] w-[100%] border-b border-gray-500 flex text-white p-8 flex-col justify-center items-center"> 
+                <div id="right top" class="sm:h-full sm:w-1/2 h-[70%] w-[100%] border-b border-gray-500 flex text-white p-8 flex-col justify-center items-center"> 
                     <div id="contact" class="h-full w-full max-w-md bg-white rounded-lg bg-cover bg-center p-6 flex flex-col justify-center items-center gap-4 shadow-lg" style="background-image: url('https://i.pinimg.com/736x/76/88/8b/76888b659329767949f039bf86857dba.jpg');">
                         <p class="text-center text-black font-semibold text-2xl text-shadow-md">Reach out to me.</p>
-                        <form action="https://api.web3forms.com/submit" method="POST" class="w-full flex flex-col items-center gap-4">
-                            <input type="hidden" name="access_key" value="b6b1ee04-ec32-40eb-a21d-0ae883c794e1">
-                            <input id="Inp" class="sm:w-4/5 w-[100%] h-[50px] px-4 text-center rounded-full text-black border-2 border-black font-[500] resize-none focus:outline-none sm:text-[15px] text-[12px] focus:ring-2 focus:ring-[#2E6BFA]" placeholder="Your Name, Your Message Here" name="message" required></input>
-                            <button id="Sub" type="submit" class="bg-black text-white py-2 px-6 rounded-full font-medium hover:bg-[#2E6BFA] hover:text-white hover:font-[600] transition duration-300">Contact</button>
-                        </form>
+                        <a href="contact.html"><button class="bg-black text-white py-2 px-6 rounded-full font-medium hover:bg-[#2E6BFA] hover:text-white hover:font-[600] transition duration-300">Contact</button></a>
                     </div>
                 </div>
             </div>
             <div id="bottom" class="h-[20%] w-full flex justify-between text-white px-8 items-center">
-                <p class="cursor-pointer" id="terms-link">Terms & Condition</p>
-                <p class="cursor-pointer" id="privacy-link">Privacy Policy</p>  
+                <p class="cursor-pointer sm:text-[15px] text-[12px]" id="terms-link">Terms & Condition</p>
+                <!-- <p class="text-gray-500 font-[500] sm:flex hidden">V_0.2</p> -->
+                <p class="cursor-pointer sm:text-[15px] text-[12px]" id="privacy-link">Privacy Policy</p>
             </div>
         </div>
     </div>
