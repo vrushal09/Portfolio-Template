@@ -1,1 +1,69 @@
-
+[
+  {
+    "id": 1,
+    "name": "Portfolio Project - Mehta Vrushal",
+    "description": "This modern portfolio design highlights Mehta Vrushal's professional journey with a clean, minimalistic layout. It features a balanced blend of light and dark tones, smooth transitions, and interactive elements that engage viewers. The design showcases projects, skills, and experiences with concise descriptions and compelling visuals. The responsive layout and carefully chosen typography ensure clarity and elegance across all devices, reflecting Vrushal's expertise in IT and Data Science.",
+    "thumbnail": "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Thumbnails/Prjct%20-%201.png?raw=true",
+    "images": [
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/1-1.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/1-2.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/1-3.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/1-4.png?raw=true"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Portfolio Project - Mehta Vrushal",
+    "description": "This project showcases the frontend design for 'Enlightened Hub', a course-selling platform focused on delivering an intuitive user experience. The design features a clean and modern layout with a clear visual hierarchy, making it easy for users to navigate and find courses. Key elements include an engaging homepage with promotional banners, well-organized course listings, and a seamless checkout process. The use of a vibrant color palette, interactive elements, and smooth animations enhances the website's appeal while maintaining a professional look. The responsive design ensures optimal functionality across various devices, providing an accessible learning experience for all users.",
+    "thumbnail": "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Thumbnails/Prjct%20-%202.png?raw=true",
+    "images": [
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/4-1.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/4-2.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/4-3.png?raw=true"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Course Selling Website - Enlightened Hub (Frontend Web)",
+    "description": "Explore my portfolio showcasing my skills in web development, game design, and automation. Discover projects that highlight my expertise with modern web technologies, engaging game mechanics, and practical automation solutions. Each project includes detailed descriptions and images to give you a clear view of my work.",
+    "thumbnail": "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Thumbnails/Prjct%20-%203.png?raw=true",
+    "images": [
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/2-1.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/2-2.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/2-3.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/2-4.png?raw=true"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Personal Portfolio Project by Vrushal",
+    "description": "This portfolio design by Vrushal exemplifies a sleek, contemporary aesthetic, combining simplicity with a visually appealing structure. The design emphasizes clarity and functionality, featuring well-organized sections for personal details, skills, and projects. Each project is presented with eye-catching visuals and concise descriptions, providing an engaging and seamless browsing experience. The responsive layout ensures the portfolio looks great on all devices, while the use of modern typography and a clean color palette enhances the overall professional appearance.",
+    "thumbnail": "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Thumbnails/Prjct%20-%204.png?raw=true",
+    "images": [
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/3-1.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/3-2.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/3-3.png?raw=true"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Automated Resume Maker from Excel Data",
+    "description": "This project is a streamlined, automated resume creation tool that transforms data from an Excel sheet into a professionally designed PDF resume. By simply updating the Excel sheet, the system dynamically adjusts the content, ensuring the resume is always up-to-date without the need for manual editing in a PDF editor. The tool features a modern two-column layout, with clear sections for personal information, skills, experience, and more, inspired by current design trends. The solution eliminates repetitive tasks, reduces time and effort, and allows users to create high-quality resumes efficiently.",
+    "thumbnail": "https://github.com/vrushal09/Vrushal.com/blob/2ac3d78ed5edf925cd06042b7be01c343ac2d403/assets/Projects%20-%20Thumbnails/prjct%20-%205.png?raw=true",
+    "images": [
+     
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Lemon Dynamics: A 3D Rigid Body Simulation",
+    "description": "Explore the fascinating physics of everyday objects with 'Lemon Dynamics,' a 3D simulation that brings a simple lemon to life. Watch as the lemon, modeled with precision and realism, responds to various forces, collisions, and environmental changes in a virtual space. This simulation showcases rigid body dynamics, including gravity, friction, and elasticity, offering a playful yet educational insight into how real-world physics can be applied to digital objects. Perfect for demonstrating the principles of physics or simply enjoying the unpredictable movement of a lemon in a simulated environment.",
+    "thumbnail": "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Thumbnails/Prjct%20-%206.png?raw=true",
+    "images": [
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/5-1.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/5-2.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/5-3.png?raw=true",
+      "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/5-4.png?raw=true"
+    ]
+  }
+]
