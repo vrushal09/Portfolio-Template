@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+
+    <title>Mehta Vrushal - Portfolio | portfolio page</title>
+
+    <link rel="shortcut icon" href="assets/Favicon.png" type="image/x-icon">
+
+    <style>
+        /* CSS boilerplate */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: "Montserrat", sans-serif;
+        }
+        #cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: .085s ease;
+            z-index: 9999;
+            mix-blend-mode: difference;
+            opacity: 1; /* Ensure it's visible by default */
+            margin: -9px;
+        }
+    </style>
+    <style>
+        /* Animation keyframes for form fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    
+        /* Applying the animation to the form */
+        .animate-fadeIn {
+            animation: fadeIn 0.5s forwards;
+        }
+    </style>
+</head>
+<body>
+    <div id="main" class="h-fit w-[100vw] bg-[#F6F6F6] flex flex-col items-center">
+        <div id="cursor" class="sm:flex hidden"></div>
+
+        <div id="nav" class="h-[8vh] w-[100vw] bg-white flex justify-between items-center fixed z-[5]">
+
+            <div id="logo" class="w-[33.33%]">
+                <a href="index.html"><img src="assets/Logo.png" class="h-[20px] w-fit pl-[25px]" alt=""></a>
+                
+            </div>
+
+            <div id="pages" class="hidden gap-[25px] w-[33.33%] justify-center font-[500] sm:flex">
+                <a id="Home" href="index.html"><p>Home</p></a>
+                <a href="index.html#About"><p>About</p></a>
+                <a href="contact.html"><p>Contact</p></a>
+                <a href="portfolio.html"><p>Portfolio</p></a>
+            </div>
+
+            <div id="Socials" class="w-[33.33%] flex justify-end pr-[25px] gap-[10px] text-[22px]">
+                <a target="_blank" href="https://www.instagram.com/mehta_vrushal_09/"><i class="ri-instagram-fill"></i></a>
+                <a target="_blank" href="https://www.behance.net/nexusgfx"><i class="ri-behance-fill"></i></a>
+                <a target="_blank" href="https://www.naukri.com/mnjuser/profile?id=&altresid"><i class="ri-linkedin-box-fill"></i></a>
+            </div>
+
+        </div>
+
+        <div id="gap" class="h-[8vh] w-[100vw]"></div>
+
+        <div id="contact-page"  class="h-[92vh] w-[100vw] flex items-center justify-center bg-[#F6F6F6]">
+            <form action="https://api.web3forms.com/submit" method="POST"  class="w-[90%] max-w-md bg-white p-8 rounded-lg shadow-md opacity-0 transform scale-95 transition-all duration-500 ease-out animate-fadeIn">
+                <input type="hidden" name="access_key" value="b6b1ee04-ec32-40eb-a21d-0ae883c794e1">
+                <a href="index.html" class="absolute top-4 left-4 bg-black text-white px-4 py-2 rounded-md sm:hidden transform transition-transform duration-300 ease-out hover:scale-105 hover:bg-gray-800">
+                    <i class="ri-arrow-left-s-line"></i>
+                </a>
+                <h2 class="text-2xl font-semibold mb-6 text-center">Get in Touch</h2>
+                
+                <div class="mb-4">
+                    <label for="name" class="block text-sm font-medium mb-2">Name</label>
+                    <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black transform transition-transform duration-300 ease-out hover:scale-105" placeholder="Your Name" required>
+                </div>
+        
+                <div class="mb-4">
+                    <label for="email" class="block text-sm font-medium mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black transform transition-transform duration-300 ease-out hover:scale-105" placeholder="Your Email" required>
+                </div>
+        
+                <div class="mb-4">
+                    <label for="message" class="block text-sm font-medium mb-2">Message</label>
+                    <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-black transform transition-transform duration-300 ease-out hover:scale-105" placeholder="Your Message" required></textarea>
+                </div>
+        
+                <button type="submit" class="w-full bg-black text-white py-2 rounded-md transform transition-transform duration-300 ease-out hover:scale-105 hover:bg-gray-800 transition-colors duration-200">Send Message</button>
+            </form>
+        </div>
+        
+
+    </div>
+
+    <script>
+        // JavaScript file: cursor-script.js
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const cursor = document.querySelector("#cursor");
+
+            // Update cursor position
+            document.addEventListener("mousemove", function(event) {
+                cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+            });
+
+            // Adjust cursor size on hover over elements with class .button-hover
+            document.querySelectorAll('.button-hover').forEach(button => {
+                button.addEventListener("mouseover", function() {
+                    cursor.style.width = "50px";
+                    cursor.style.height = "50px";
+                });
+
+                button.addEventListener("mouseout", function() {
+                    cursor.style.width = "20px";
+                    cursor.style.height = "20px";
+                });
+            });
+
+            // Change cursor color based on hover state
+            document.addEventListener('mouseover', (event) => {
+                if (event.target.closest('#start_btn')) {
+                    cursor.style.backgroundColor = 'black';
+                } else {
+                    cursor.style.backgroundColor = 'white';
+                }
+            });
+
+            document.addEventListener('mouseout', (event) => {
+                if (event.target.closest('#start_btn')) {
+                    cursor.style.backgroundColor = 'white';
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>
