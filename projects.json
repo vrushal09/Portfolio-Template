@@ -44,5 +44,14 @@
       "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/3-2.png?raw=true",
       "https://github.com/vrushal09/Vrushal.com/blob/main/assets/Projects%20-%20Images/3-3.png?raw=true"
     ]
+  },
+  {
+    "id": 5,
+    "name": "Automated Resume Maker from Excel Data",
+    "description": "This project is a streamlined, automated resume creation tool that transforms data from an Excel sheet into a professionally designed PDF resume. By simply updating the Excel sheet, the system dynamically adjusts the content, ensuring the resume is always up-to-date without the need for manual editing in a PDF editor. The tool features a modern two-column layout, with clear sections for personal information, skills, experience, and more, inspired by current design trends. The solution eliminates repetitive tasks, reduces time and effort, and allows users to create high-quality resumes efficiently.",
+    "thumbnail": "https://github.com/vrushal09/Vrushal.com/blob/2ac3d78ed5edf925cd06042b7be01c343ac2d403/assets/Projects%20-%20Thumbnails/prjct%20-%205.png?raw=true",
+    "images": [
+     
+    ]
   }
 ]
