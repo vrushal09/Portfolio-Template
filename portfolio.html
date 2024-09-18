@@ -411,6 +411,29 @@
         }
     </script>
 
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cursor = document.querySelector("#cursor");
+            const edgeThreshold = 20; // Distance from edge to hide cursor
+
+            // Update cursor position
+            document.addEventListener("mousemove", function(event) {
+                cursor.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+
+                // Hide cursor near edges
+                if (event.clientX <= edgeThreshold || event.clientY <= edgeThreshold || 
+                    event.clientX >= window.innerWidth - edgeThreshold || event.clientY >= window.innerHeight - edgeThreshold) {
+                    cursor.style.opacity = '0';
+                } else {
+                    cursor.style.opacity = '1';
+                }
+            });
+
+            // Rest of your code...
+        });
+    </script>
+
     <script>
         // Function to display project details in the overlay
         function displayProjectDetails(project) {
