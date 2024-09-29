@@ -65,5 +65,14 @@
       "assets/Projects - Images/5-3.png",
       "assets/Projects - Images/5-4.png"
     ]
+  },
+  {
+    "id": 7,
+    "name": "Wallpaper Website - VM-Wallpapers",
+    "description": "VM-Wallpapers is a sleek and modern wallpaper gallery website that provides users with a seamless browsing experience. With its clean and minimalistic interface, the site allows visitors to explore a curated selection of high-quality images, sourced from the Pexels API. Users can search for their preferred wallpapers using specific categories or keywords, view images in a dynamic, responsive grid, and open them in full-screen mode for a more detailed preview.VM-Wallpapers is built using HTML, CSS, and JavaScript, with a focus on providing a smooth, fast, and enjoyable experience for visitors. The combination of simple aesthetics and powerful functionality makes it an ideal showcase for browsing and downloading beautiful wallpapers.",
+    "thumbnail": "assets/Projects - Thumbnails/Leonardo_Phoenix_Create_a_captivating_thumbnail_for_the_VMWall_3.jpg",
+    "images": [
+     
+    ]
   }
 ]
