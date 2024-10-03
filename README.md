@@ -10,7 +10,7 @@
 📫 Reach me at: vrushal.com@gmail.com
 
 ## 🌐 Socials:
-[Behance](https://behance.net/nexusgfx) | [Instagram](https://www.instagram.com/mehta_vrushal_09/) | [LinkedIn](https://www.linkedin.com/in/mehta-vrushal)
+[Behance](https://behance.net/nexusgfx) | [Instagram](https://www.instagram.com/mehta_vrushal_09/) | [Naukri](https://www.naukri.com/mnjuser/profile?id=&altresid)
 
 ## 💻 Tech Stack:
 - Python, C++, JavaScript, Java, PHP, SQL, HTML/CSS
