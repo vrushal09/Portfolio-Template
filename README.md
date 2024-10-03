@@ -15,6 +15,3 @@
 ## 💻 Tech Stack:
 - Python, C++, JavaScript, Java, PHP, SQL, HTML/CSS
 - Tools: Adobe Suite, Figma, MySQL, SQLite
-
-## 📊 GitHub Stats:
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=vrushal09&theme=dark)
