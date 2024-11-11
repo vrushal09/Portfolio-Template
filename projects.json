@@ -74,5 +74,14 @@
     "images": [
      
     ]
+  },
+  {
+    "id": 7,
+    "name": "Inkcode",
+    "description": "InkCode is a collaborative, real-time coding platform designed to provide an interactive and seamless coding experience for developers. It allows users to create, share, and collaborate on coding projects directly in their web browser. InkCode integrates features like real-time cursor tracking and live code updates, enabling multiple users to work on the same project simultaneously, making collaboration easier and more efficient.",
+    "thumbnail": "assets/Thumbnail - 2.png",
+    "images": [
+      
+    ]
   }
 ]
