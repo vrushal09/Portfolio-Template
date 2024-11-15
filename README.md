@@ -92,6 +92,10 @@ This project is open source and available under the MIT License.
 📞 Contact
 ----------
 
-For any questions or support, please contact me via your-email@example.com.
+For any questions or support, please contact me via vrushal.com@gmail.com.
+
+Please replace all demo assets & projects with your projects and assets. {all images used for projects are from dribbble i do not own any of it, just used it as demo images }.
+
+please read replace.txt for more clarification.
 
 Thank you for using this template! I hope it helps you build a beautiful portfolio. 😊
