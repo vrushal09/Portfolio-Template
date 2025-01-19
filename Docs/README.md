@@ -6,12 +6,6 @@ Welcome to my personal portfolio! This project showcases my skills, projects, an
 - [About](#about)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Getting Started](#getting-started)
-- [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
-- [Contact](#contact)
-
----
 
 ## About
 
